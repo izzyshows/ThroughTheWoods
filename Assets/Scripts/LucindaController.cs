@@ -6,6 +6,7 @@ public class LucindaController : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
+    public Animator animator;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -16,5 +17,6 @@ public class LucindaController : MonoBehaviour
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical"));
             rb.velocity = moveInput.normalized * speed;
+            animator.SetFloat("Speed", rb.velocity.magnitude);
     }
 }
