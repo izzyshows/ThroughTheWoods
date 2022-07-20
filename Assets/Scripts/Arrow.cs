@@ -33,11 +33,17 @@ public class Arrow : MonoBehaviour
             return;
         }
 
-        Vector2 newPosition = new Vector2(
-            transform.position.x - dirVector.x * 0.1f,
-            transform.position.y - dirVector.y * 0.1f);
+        if (collision.gameObject.tag == "Spiker") {
+            Destroy(collision.gameObject);
+        }
 
-            rb.MovePosition(newPosition);
-            speed = 0f;
+        Destroy(gameObject);
+
+        // Vector2 newPosition = new Vector2(
+        //     transform.position.x - dirVector.x * 0.1f,
+        //     transform.position.y - dirVector.y * 0.1f);
+
+        //     rb.MovePosition(newPosition);
+        //     speed = 0f;
     }
 }
